@@ -23,3 +23,6 @@ function makeGetRequest() {
     })
     .catch((error) => console.error("Error:", error));
 }
+
+// Event listeners for button clicks
+getButton.addEventListener("click", makeGetRequest);
