@@ -1,6 +1,8 @@
 const getButton = document.getElementById("getButton");
 const postButton = document.getElementById("postButton");
 const resultDiv = document.getElementById("result");
+const issueTitleInput = document.getElementById("issueTitle");
+const issueBodyInput = document.getElementById("issueBody");
 
 // GET request Function
 function makeGetRequest() {
