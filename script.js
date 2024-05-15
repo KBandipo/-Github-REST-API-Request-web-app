@@ -7,9 +7,7 @@ const issueBodyInput = document.getElementById("issueBody");
 // GET request Function
 function makeGetRequest() {
   // Make a GET request to fetch data related to issues or pull requests
-  fetch(
-    "https://api.github.com/repos/KBandipo/Github-REST-API-Request-web-app/issues"
-  )
+  fetch("https://api.github.com/repos/KBandipo/GitHub-REST-API/issues")
     .then((response) => response.json())
     .then((data) => {
       resultDiv.innerHTML = "";
@@ -34,17 +32,14 @@ function makePostRequest() {
   // GitHub access token
   const accessToken = "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";
 
-  fetch(
-    "https://api.github.com/repos/KBandipo/Github-REST-API-Request-web-app/issues",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify({ title, body }),
-    }
-  )
+  fetch("https://api.github.com/repos/KBandipo/GitHub-REST-API/issues", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify({ title, body }),
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Failed to create issue! Status: ${response.status}`);
