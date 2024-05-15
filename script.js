@@ -26,12 +26,35 @@ function makeGetRequest() {
     .catch((error) => console.error("Error:", error));
 }
 
+// POST request Function
 function makePostRequest() {
   const title = issueTitleInput.value;
   const body = issueBodyInput.value;
 
   // GitHub access token
   const accessToken = "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";
+
+  fetch(
+    "https://api.github.com/repos/KBandipo/Alstride-E-commerce-Website/issues",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ title, body }),
+    }
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to create issue! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      resultDiv.innerText = `New Issue Created: ${data.title}`;
+    })
+    .catch((error) => console.error("Error creating issue:", error));
 }
 
 // Event listeners for button clicks
