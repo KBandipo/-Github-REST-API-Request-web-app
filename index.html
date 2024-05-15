@@ -8,9 +8,18 @@
   </head>
   <body>
     <div class="container">
-      <button id="getButton">GET Request</button>
-      <button id="postButton">POST Request</button>
-      <div id="result"></div>
+      <div>
+        <button id="getButton">GET Issues</button>
+        <div id="result"></div>
+      </div>
+
+      <div>
+        <label for="issueTitle">Issue Title</label><br />
+        <input type="text" id="issueTitle" /><br />
+        <label for="issueBody">Issue Body</label><br />
+        <textarea id="issueBody"></textarea><br />
+        <button id="postButton">POST Issue</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
