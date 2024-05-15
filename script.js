@@ -8,7 +8,7 @@ const issueBodyInput = document.getElementById("issueBody");
 function makeGetRequest() {
   // Make a GET request to fetch data related to issues or pull requests
   fetch(
-    "https://api.github.com/repos/KBandipo/Alstride-E-commerce-Website/issues"
+    "https://api.github.com/repos/KBandipo/Github-REST-API-Request-web-app/issues"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -35,7 +35,7 @@ function makePostRequest() {
   const accessToken = "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";
 
   fetch(
-    "https://api.github.com/repos/KBandipo/Alstride-E-commerce-Website/issues",
+    "https://api.github.com/repos/KBandipo/Github-REST-API-Request-web-app/issues",
     {
       method: "POST",
       headers: {
