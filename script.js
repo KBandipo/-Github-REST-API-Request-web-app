@@ -26,7 +26,10 @@ function makeGetRequest() {
     .catch((error) => console.error("Error:", error));
 }
 
-function makePostRequest() {}
+function makePostRequest() {
+  const title = issueTitleInput.value;
+  const body = issueBodyInput.value;
+}
 
 // Event listeners for button clicks
 getButton.addEventListener("click", makeGetRequest);
