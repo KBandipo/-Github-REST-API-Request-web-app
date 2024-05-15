@@ -29,6 +29,9 @@ function makeGetRequest() {
 function makePostRequest() {
   const title = issueTitleInput.value;
   const body = issueBodyInput.value;
+
+  // GitHub access token
+  const accessToken = "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";
 }
 
 // Event listeners for button clicks
