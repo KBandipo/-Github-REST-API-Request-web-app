@@ -24,6 +24,8 @@ function makeGetRequest() {
     .catch((error) => console.error("Error:", error));
 }
 
+function makePostRequest() {}
+
 // Event listeners for button clicks
 getButton.addEventListener("click", makeGetRequest);
 postButton.addEventListener("click", makePostRequest);
