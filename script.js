@@ -26,3 +26,4 @@ function makeGetRequest() {
 
 // Event listeners for button clicks
 getButton.addEventListener("click", makeGetRequest);
+postButton.addEventListener("click", makePostRequest);
