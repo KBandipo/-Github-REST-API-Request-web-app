@@ -1,17 +1,16 @@
+import { Octokit } from "octokit";
 const getButton = document.getElementById("getButton");
 const postButton = document.getElementById("postButton");
 const resultDiv = document.getElementById("result");
 const issueTitleInput = document.getElementById("issueTitle");
 const issueBodyInput = document.getElementById("issueBody");
 
-// GET request Function
+// Function to make a GET request
 function makeGetRequest() {
-  // Make a GET request to fetch data related to issues or pull requests
   fetch("https://api.github.com/repos/KBandipo/GitHub-REST-API/issues")
     .then((response) => response.json())
     .then((data) => {
       resultDiv.innerHTML = "";
-
       data.forEach((issue) => {
         const issueLink = document.createElement("a");
         issueLink.href = issue.html_url;
@@ -21,22 +20,24 @@ function makeGetRequest() {
         resultDiv.appendChild(document.createElement("br"));
       });
     })
-    .catch((error) => console.error("Error:", error));
+    .catch((error) => console.error("Error fetching issues:", error));
 }
 
-// POST request Function
+// Function to make a POST request
 function makePostRequest() {
   const title = issueTitleInput.value;
   const body = issueBodyInput.value;
 
   // GitHub access token
-  const accessToken = "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";
+  const octokit = new Octokit({
+    auth: "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",
+  });
 
   fetch("https://api.github.com/repos/KBandipo/GitHub-REST-API/issues", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${octokit}`,
     },
     body: JSON.stringify({ title, body }),
   })
